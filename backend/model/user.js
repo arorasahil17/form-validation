@@ -11,7 +11,11 @@ const userSchema = new mongoose.Schema({
     required: true,
     match: [/^[A-Za-z]+$/, "Last Name accepts alphabets only"],
   },
-  email: { type: String, required: true, match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ },
+  email: {
+    type: String,
+    required: true,
+    match: [/^[^\s@]+@[^\s@]+\.[^\s@]+$/, "Email is invalid"],
+  },
   country: { type: String, required: true },
   state: { type: String, required: true },
   city: { type: String, required: true },
